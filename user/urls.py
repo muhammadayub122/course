@@ -1,8 +1,11 @@
-from rest_framework.viewsets import ModelViewSet
-from .models import User
-from .serializer import UserSerializer
 
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views import UserViewSet
 
-class UserViewSet(ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+router = DefaultRouter()
+router.register("users", UserViewSet)
+
+urlpatterns = [
+    path("", include(router.urls)),
+]
