@@ -13,6 +13,6 @@ class Homework(models.Model):
 class HomeworkSubmission(models.Model):
     homework = models.ForeignKey(Homework, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    file = models.FileField(upload_to="submissions/")
+    file = models.FileField(upload_to="submissions/",blank=True, null=True)
     ball = models.IntegerField(default=0)
     is_checked = models.BooleanField(default=False)

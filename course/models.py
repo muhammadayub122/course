@@ -17,7 +17,7 @@ class Course(models.Model):
 
 
 class StudentCourse(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='course_studentcourse_user')
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='course_studentcourse_course')
     is_paid = models.BooleanField(default=False)
     start_date = models.DateTimeField(auto_now_add=True)
