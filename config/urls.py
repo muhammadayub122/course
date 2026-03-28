@@ -27,6 +27,10 @@ urlpatterns = [
     path('api/',include("course.urls")),
     path('api/',include("homework.urls")),
     path('api/',include("lesson.urls")),
+    path('api/',include("category.urls")),
+    path('api/',include('payment.urls')),
+    path("api/",include('student.urls')),
+    
 ]
 
 if settings.DEBUG:
